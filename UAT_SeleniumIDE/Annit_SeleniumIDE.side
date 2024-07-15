@@ -1,0 +1,89 @@
+{
+  "id": "c1f71849-9c5f-4c78-b4fd-28f2fb03e097",
+  "version": "2.0",
+  "name": "Annit_SQA",
+  "url": "https://www.ariseconstructions.com/",
+  "tests": [{
+    "id": "38e0fd3c-06a5-4227-8d4d-fedc78919a70",
+    "name": "AboutUs_test",
+    "commands": [{
+      "id": "52320dba-7813-49d8-83ce-d175c808fbfb",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.ariseconstructions.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d8a3d7ef-161c-4b60-acc1-cd27fe0fc068",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=About",
+      "targets": [
+        ["linkText=About", "linkText"],
+        ["css=li:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'About')]", "xpath:link"],
+        ["xpath=//nav[@id='navbar-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/about')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'About')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ad50eec7-2f12-4fe3-aa64-3b619b82775c",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "About Us | Denver, CO | Arise Constructions",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "67083094-1ace-4243-9c32-302d5ecec7b8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.left > .title",
+      "targets": [
+        ["css=.left > .title", "css:finder"],
+        ["xpath=//section[@id='construction']/div/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Who We Are')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c80f2b9-b18c-4f3f-81be-b48604c42c64",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.left > .title",
+      "targets": [
+        ["css=.left > .title", "css:finder"],
+        ["xpath=//section[@id='construction']/div/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Who We Are')]", "xpath:innerText"]
+      ],
+      "value": "Who We Are"
+    }, {
+      "id": "d4083c20-7eb3-4ed5-aeb1-9e748195d82d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=li:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//nav[@id='navbar-menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[2]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "5e4531a0-3471-459d-98a5-f94dbc8f3527",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["38e0fd3c-06a5-4227-8d4d-fedc78919a70"]
+  }],
+  "urls": [],
+  "plugins": []
+}

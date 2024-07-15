@@ -1,0 +1,29 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+
+# ALWAYS OPEN BROWSER
+chrome_browser = webdriver.Chrome()
+app_url = 'https://www.ariseconstructions.com/'
+chrome_browser.get(app_url)
+
+time.sleep(2)
+
+
+buttons = chrome_browser.find_elements(By.CLASS_NAME, 'nav-link')
+about_button = buttons[1]
+about_button.click()
+
+assert chrome_browser.title
+
+
+
+
+
+
+
+
+# ALWAYS CLOSE BROWSER AT THE END
+time.sleep(3)
+chrome_browser.close()
