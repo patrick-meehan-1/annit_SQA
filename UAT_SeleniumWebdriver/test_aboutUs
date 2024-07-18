@@ -5,11 +5,14 @@ import time
 
 # ALWAYS OPEN BROWSER
 chrome_browser = webdriver.Chrome()
+chrome_browser.maximize_window()
 app_url = 'https://www.ariseconstructions.com/'
 chrome_browser.get(app_url)
 
 time.sleep(2)
 
+
+# -------
 
 buttons = chrome_browser.find_elements(By.CLASS_NAME, 'nav-link')
 about_button = buttons[1]
@@ -19,7 +22,7 @@ assert chrome_browser.title
 
 
 
-
+# -------
 
 
 
