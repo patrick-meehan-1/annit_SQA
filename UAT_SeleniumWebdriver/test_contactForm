@@ -1,0 +1,34 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+ 
+chrome_browser = webdriver.Chrome()
+chrome_browser.maximize_window()
+app_url = 'https://www.ariseconstructions.com/'
+chrome_browser.get(app_url)
+ 
+time.sleep(2)
+ 
+chrome_browser.find_element(By.LINK_TEXT, 'Contact').click()
+ 
+time.sleep(2)
+iframe = chrome_browser.find_element(By.TAG_NAME, 'iframe')
+chrome_browser.switch_to.frame(iframe)
+
+chrome_browser.find_element(By.ID, 'first_name_id').send_keys('Annit Maria')  
+chrome_browser.find_element(By.ID, 'last_name_id').send_keys('Binu')  
+chrome_browser.find_element(By.ID, 'email_id').send_keys('annitmariabinu@gmail.com')  
+chrome_browser.find_element(By.ID, 'phone_id').send_keys('1234567890')
+ 
+chrome_browser.find_element(By.ID, 'get_started_id').click()
+chrome_browser.switch_to.default_content()
+
+assert "Continue with your phone" in chrome_browser.page_source
+
+ 
+time.sleep(2)
+ 
+assert "Contact Us" in chrome_browser.page_source
+ 
+time.sleep(3)
+chrome_browser.close()

@@ -1,0 +1,48 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+ 
+# ALWAYS OPEN BROWSER
+chrome_browser = webdriver.Chrome()
+chrome_browser.maximize_window()
+app_url = 'https://www.ariseconstructions.com/'
+chrome_browser.get(app_url)
+ 
+time.sleep(2)
+ 
+# Test Case Id: 2
+# Test Case Name: TestContactPage
+ 
+# Step 1: Click “contact” button
+contact_button = chrome_browser.find_element(By.LINK_TEXT, 'Contact')  # Assuming the link text is "Contact"
+contact_button.click()
+ 
+time.sleep(2)
+ 
+# Step 2: Assert the title of the page
+assert chrome_browser.title == "Contact Us | Arise Constructions | Denver, CO"
+ 
+# Step 3: Assert text on page
+ 
+# Verify test 1: Verify text "By submitting this form, you agree to receive text messages from this business about your project." on the page
+iframe = chrome_browser.find_element(By.TAG_NAME, 'iframe')
+chrome_browser.switch_to.frame(iframe)
+assert "By submitting this form, you agree to receive text messages from this business about your project." in chrome_browser.page_source
+chrome_browser.switch_to.default_content()
+ 
+# Verify test 2: Verify text "create video walkthrough of your project" on the page
+assert "Contact Us" in chrome_browser.page_source
+
+ 
+# Step 4: Click home page button
+home_button = chrome_browser.find_element(By.LINK_TEXT, 'Home')  # Assuming the link text is "Home"
+home_button.click()
+ 
+time.sleep(2)
+ 
+# Step 5: Assert that the title of the homepage is "Home Construction Specialists | Denver, CO | Arise Constructions"
+assert chrome_browser.title == "Home Construction Specialists | Denver, CO | Arise Constructions"
+ 
+# ALWAYS CLOSE BROWSER AT THE END
+time.sleep(3)
+chrome_browser.close()
