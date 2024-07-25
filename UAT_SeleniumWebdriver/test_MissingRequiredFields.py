@@ -35,7 +35,7 @@ lname_field = chrome_browser.find_element(By.NAME, 'lead_attributes.last_name')
 lname_field.send_keys("Bloggs")
 
 email_field = chrome_browser.find_element(By.NAME, 'lead_attributes.email')
-email_field.send_keys("123@gmail.com")
+email_field.send_keys("123@gmail")
 
 phone_field = chrome_browser.find_element(By.NAME, 'lead_attributes.phone')
 phone_field.send_keys("719-266-2837")
@@ -43,15 +43,16 @@ phone_field.send_keys("719-266-2837")
 submit_button = chrome_browser.find_element(By.CLASS_NAME, 'cursor-pointer')
 submit_button.click()
 
+assert "First name" in chrome_browser.page_source
+
+time.sleep(3)
+assert "is invalid" in chrome_browser.page_source
+
 chrome_browser.switch_to.default_content()
-
-
 
 # -------
 
 
-
-
 # ALWAYS CLOSE BROWSER AT THE END
-time.sleep(20)
+time.sleep(5)
 chrome_browser.close()

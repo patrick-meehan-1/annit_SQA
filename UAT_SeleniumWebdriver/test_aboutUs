@@ -13,18 +13,12 @@ time.sleep(2)
 
 
 # -------
-
 buttons = chrome_browser.find_elements(By.CLASS_NAME, 'nav-link')
 about_button = buttons[1]
 about_button.click()
 
 assert chrome_browser.title
-
-
-
 # -------
-
-
 
 
 # ALWAYS CLOSE BROWSER AT THE END
