@@ -20,13 +20,14 @@ chrome_browser.find_element(By.ID, 'lead_attributes.last_name').send_keys('Binu'
 chrome_browser.find_element(By.ID, 'lead_attributes.email').send_keys('annitmariabinu@gmail.com')  
 chrome_browser.find_element(By.ID, 'lead_attributes.phone').send_keys('(804) 222-1111')
  
+chrome_browser.switch_to.default_content()
 chrome_browser.find_element(By.TAG_NAME, 'button').click()
-time.sleep(5)
+time.sleep(2)
 
 
-assert "We found a recent entry with your phone number! Would you like to start where you left off?" in chrome_browser.page_source
+assert "Home construction and remodeling experts serving Denver" in chrome_browser.page_source
  
-assert "Continue" in chrome_browser.page_source
+assert ", CO and the surrounding area." in chrome_browser.page_source
  
 time.sleep(3)
 chrome_browser.close()
